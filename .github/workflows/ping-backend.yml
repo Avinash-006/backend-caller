@@ -1,0 +1,14 @@
+name: Ping Backend Every 10 Minutes
+
+on:
+  schedule:
+    - cron: "*/10 * * * *" # every 10 minutes
+  workflow_dispatch: # allows manual trigger too
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call backend
+        run: |
+          curl -X GET "https://springbackend-swiftyy.onrender.com"
